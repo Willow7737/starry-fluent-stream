@@ -5,3 +5,4 @@ aiohttp
 transformers>=4.0.0
 torch>=1.7.0; platform_system != 'Windows'
 google-cloud-firestore
+pydantic-settings>=2.1.0
