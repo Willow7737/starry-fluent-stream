@@ -1,4 +1,5 @@
-from pydantic import BaseSettings, AnyHttpUrl, validator
+from pydantic_settings import BaseSettings
+from pydantic import AnyHttpUrl, validator
 from typing import List
 import os
 
