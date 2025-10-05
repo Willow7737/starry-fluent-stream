@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: starry-translation-api
+    env: docker
+    plan: starter
+    dockerfilePath: Dockerfile
+    buildCommand: docker build -t starry-translation-api .
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 8000
+    autoDeploy: true
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: starry-translation-db
+          property: connectionString
+      - key: FIREBASE_SERVICE_ACCOUNT_B64
+        sync: false
+      - key: HF_TOKEN
+        sync: false
+databases:
+  - name: starry-translation-db
+    plan: starter
